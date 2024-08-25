@@ -1,8 +1,11 @@
-runlevel = 2;
-cNumberOfGrooves = 3; // Number of grooves in the rail
+//leave on 3, others are for testing
+runlevel = 3;
+// Number of grooves in the rail
+cNumberOfGrooves = 3; 
 //1 = wide, 2 = narrow
 cType = 2;
-cRailWidth = 20; //width of the rail
+//width of the rail
+cRailWidth = 20;
 //initialize variables
 cSeg0 = 0; //top of left tooth left side
 cSeg1 = 5; //top of left tooth left side
