@@ -1,20 +1,25 @@
 //leave on 3, others are for testing
-runlevel = 3;
+runlevel = 3; //[1,2,3]
 // Number of grooves in the rail
 cNumberOfGrooves = 3; 
 //1 = wide, 2 = narrow
-cType = 2;
+cType = 2; //[1,2]
 //width of the rail
 cRailWidth = 20;
 
 //set to 1 if you want retaining tags, they will be on one side only for easier printing
-cRetainingTag = 1;
+cRetainingTag = 1; //[0,1]
 cRetainingTagWidth = 6;
 cRetainingTagLen = 8;
 cRetainingTagHeight = 5;
 cRetainingTagHoleDiameter = 4;
 
 //initialize variables
+//originally there was going to be one set of variables, but openscad got really upset
+//when I tried to re-assign variables within flow control, so there ended up with two sets
+//of variables, one for each type of rail.
+
+
 cSeg0 = 0; //top of left tooth left side
 cSeg1 = 5; //top of left tooth left side
 cSeg2 = 10; //bottom of left tooth right side
@@ -28,7 +33,7 @@ cSegOverallLen = (cSeg5 * cNumberOfGrooves) - (cSeg1 * (cNumberOfGrooves));
 echo(cSegOverallLen);
 cPoints = [[cSeg0, cOverallHeight], [cSeg1,cOverallHeight],[cSeg2, cBase], [cSeg3, cBase], [cSeg4, cOverallHeight], [cSeg5, cOverallHeight],[cSeg5,0],[cSeg0,0]];
 
-//because openscad hates variables and assignment within flow control.
+//because openscad
 c1Seg0 = 0;
 c1Seg1 = 5;
 c1Seg2 = 7.5;
