@@ -1,3 +1,4 @@
+runlevel = 1;
 cNumberOfGrooves = 3; // Number of grooves in the rail
 
 //base width is defined based on the top geometry
@@ -15,4 +16,8 @@ cOverallHeight = 30; //overall height of the rail (base & teeth)
 
 cPoints = [[cSeg0,cOverallHeight],[cSeg1,cOverallHeight],[cSeg2,cBase],[cSeg3,cBase],[cSeg4,cOverallHeight],[cSeg5,cOverallHeight]];
 
-polygon(cPoints);
+cPoints2 = [[cSeg0, cOverallHeight], [cSeg1,cOverallHeight],[cSeg2, cBase], [cSeg3, cBase], [cSeg4, cOverallHeight], [cSeg5, cOverallHeight],[cSeg5,0],[cSeg0,0]];
+
+if (runlevel == 1) {
+    polygon(cPoints2);
+};
