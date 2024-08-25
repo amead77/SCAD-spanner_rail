@@ -2,7 +2,7 @@ runlevel = 2;
 cNumberOfGrooves = 3; // Number of grooves in the rail
 //1 = wide, 2 = narrow
 cType = 2;
-
+cRailWidth = 20; //width of the rail
 //initialize variables
 cSeg0 = 0; //top of left tooth left side
 cSeg1 = 5; //top of left tooth left side
@@ -28,12 +28,13 @@ c1OverallHeight = 30;
 
 cPoints1 = [[c1Seg0, c1OverallHeight], [c1Seg1,c1OverallHeight],[c1Seg2, c1Base], [c1Seg3, c1Base], [c1Seg4, c1OverallHeight], [c1Seg5, c1OverallHeight],[c1Seg5,0],[c1Seg0,0]];
 
-if (runlevel == 1) {
+module drawbasic() {
     if (cType == 1) polygon(cPoints);
     if (cType == 2) polygon(cPoints1);
 };
 
-if (runlevel == 2) {
+
+module drawrail(){
     for (i = [0 : cNumberOfGrooves - 1]) {
         if (cType == 1) {
             translate([i * (cSeg5 - cSeg1), 0, 0]) {
@@ -45,5 +46,20 @@ if (runlevel == 2) {
                 polygon(cPoints1);
             };
         };
+    };
+};
+
+
+if (runlevel == 1) {
+    drawbasic();
+};
+
+if (runlevel == 2) {
+    drawrail();
+};
+
+if (runlevel == 3) {
+    linear_extrude(height = cRailWidth) {
+        drawrail();
     };
 };
